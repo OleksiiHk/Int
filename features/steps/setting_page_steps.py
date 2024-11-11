@@ -12,6 +12,7 @@ def click_community(context):
 @when ('Verify the right page opens')
 def verify_community_page_is_open(context):
     context.app.setting_page.verify_community_page_is_open()
+    sleep(2)
 
 @when ('Verify “Contact support” button is available and clickable')
 def verify_contact_support_button(context):

@@ -1,10 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver import FirefoxProfile
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 
 from app.application import Application
 
@@ -21,9 +24,9 @@ def browser_init(context, scenario_name):
     # context.driver = webdriver.Chrome(service=service)
 
 
-    driver_path = GeckoDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Firefox(service=service)
+    # driver_path = GeckoDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Firefox(service=service)
 
 
     ### SAFARI ###
@@ -33,7 +36,7 @@ def browser_init(context, scenario_name):
     # service = Service(executable_path='put your path to driver file here')
     # context.driver = webdriver.Firefox(service=service)
 
-    ### HEADLESS MODE ####
+    ## HEADLESS MODE FOR Chrome####
     # options = webdriver.ChromeOptions()
     # options.add_argument('headless')
     # service = Service(ChromeDriverManager().install())
@@ -41,6 +44,11 @@ def browser_init(context, scenario_name):
     #     options=options,
     #     service=service
     # )
+    ## HEADLESS MODE FOR FIREFOX####
+    options = Options()
+    options.add_argument('--headless')
+    service = Service(GeckoDriverManager().install())
+    context.driver = webdriver.Firefox(service=service, options=options)
 
     ### BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings

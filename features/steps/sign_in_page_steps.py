@@ -14,4 +14,4 @@ def input_email_and_password(context):
 @then ("Click on the continue button")
 def click_sign_in(context):
     context.app.sign_in_page.click_sign_in()
-    sleep(10)
+    sleep(2)
