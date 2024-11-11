@@ -8,3 +8,11 @@ from time import sleep
 @then ('Click on Community option')
 def click_community(context):
     context.app.setting_page.click_community()
+
+@when ('Verify the right page opens')
+def verify_community_page_is_open(context):
+    context.app.setting_page.verify_community_page_is_open()
+
+@when ('Verify “Contact support” button is available and clickable')
+def verify_contact_support_button(context):
+    context.app.setting_page.verify_contact_support_button()
