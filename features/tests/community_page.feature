@@ -9,3 +9,6 @@ Feature: Tests for community page
     And Click on Community option
     When Verify the right page opens
     And Verify “Contact support” button is available and clickable
+
+
+    

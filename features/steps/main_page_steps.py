@@ -8,4 +8,4 @@ from time import sleep
 @then ("Click on settings option")
 def click_settings(context):
     context.app.main_page.click_settings()
-    sleep(2)
+    # sleep(2)
